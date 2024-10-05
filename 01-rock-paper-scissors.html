@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPS</title>
+  <style>
+    body{
+      padding: 40px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    button{
+      height: 100px;
+      width: 100px;
+      background-color: #fff;
+      border: 5px solid #111;
+      border-radius: 50px;
+      padding: 10px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    img{
+      height: 50%;
+      width: auto;
+    }
+    .yourMove{
+      height: 125px;
+      width: 125px;
+      background-color: #fff;
+      border: 5px solid #111;
+      border-radius: 20px;
+      padding: 0px;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+    .compMove{
+      height: 125px;
+      width: 125px;
+      background-color: #fff;
+      border: 5px solid #111;
+      border-radius: 20px;
+      padding: 0px;
+      margin: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+    .compVSyou{
+      display: flex;
+    }
+    .reset{
+      height: auto;
+      width: auto;
+      background-color: #111;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rock Paper Scissors</h1>
+
+  <button onclick="playerMove('rock');">
+    <img src="hand-back-fist.svg">
+  </button>
+  <button onclick="playerMove('paper');">
+    <img src="hand-paper.svg">
+  </button>
+  <button onclick="playerMove('scissors');">
+    <img src="hand-scissors.svg">
+  </button>
+
+  <h2 class="resultH">--------------</h2>
+
+  <div class="compVSyou">
+    <div class="yourMove">
+      <img src="user.svg">
+      <h4>You</h4>
+    </div>
+    <div class="compMove">
+      <img src="user-robot.svg">
+      <h4>Bot</h4>
+    </div>
+  </div>
+
+  <h2 class="history">History Here</h2>
+  <div style="height: 20px;"></div>
+  <button onclick="resetScore();" class="reset">Reset Score</button>
+  
+  <script src="02-rock-paper-scissors.js"></script>
+</body>
+</html>
