@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calc</title>
+  <style>
+    .cal-container{
+      background-color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      height: auto;
+      max-height: 600px;
+      width: auto;
+      max-width: 300px;
+      border: 5px solid #222;
+      border-radius: 20px;
+    }
+    .cal-screen{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px;
+      background-color: #222;
+      font-weight: 600;
+      color: #fff;
+      height: 80px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+    .cal-btns{
+      padding: 10px;
+    }
+    .cal-r{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .btns{
+      height: 70px;
+      width: 70px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #222;
+      margin: 5px;
+      border: none;
+      border-radius: 10px;
+      font-size: 25px;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="cal-container">
+    <div class="cal-screen">
+      <h3 id="display" class="display"></h3>
+    </div>
+    <div class="cal-div"></div>
+    <div class="cal-btns">
+      <div class="cal-r">
+        <button onclick="appendToDisplay('7');" class="btns">7</button>
+        <button onclick="appendToDisplay('8');" class="btns">8</button>
+        <button onclick="appendToDisplay('9');" class="btns">9</button>
+        <button onclick="appendToDisplay('*');" class="btns">*</button>
+      </div>
+      <div class="cal-r">
+        <button onclick="appendToDisplay('4');" class="btns">4</button>
+        <button onclick="appendToDisplay('5');" class="btns">5</button>
+        <button onclick="appendToDisplay('6');" class="btns">6</button>
+        <button onclick="appendToDisplay('-');" class="btns">-</button>
+      </div>
+      <div class="cal-r">
+        <button onclick="appendToDisplay('1');" class="btns">1</button>
+        <button onclick="appendToDisplay('2');" class="btns">2</button>
+        <button onclick="appendToDisplay('3');" class="btns">3</button>
+        <button onclick="appendToDisplay('+');" class="btns">+</button>
+      </div>
+      <div class="cal-r">
+        <button onclick="appendToDisplay('0');" class="btns">0</button>
+        <button onclick="clearDisplay();" class="btns">C</button>
+        <button onclick="calculate();" class="btns">=</button>
+        <button onclick="appendToDisplay('/');" class="btns">/</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+const display = document.getElementById("display");
+
+function appendToDisplay(input){
+    display.innerText += input;
+}
+
+function clearDisplay(){
+    display.innerText = "";
+}
+
+function calculate(){
+    try{
+        display.innerText = eval(display.innerText);
+    }
+    catch(error){
+        display.innerText = "Error";
+    }
+}
+  </script>
+</body>
+</html>
