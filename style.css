@@ -1,0 +1,108 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 200vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+  position: relative;
+  background: linear-gradient(to right, #414141, #2a2a2a);
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20rem;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  animation: hover 10s ease-in-out infinite;
+}
+
+.subtitle-wrapper {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden; /* Hide overflow for a clean look */
+  z-index: 4; /* Ensure subtitle is above the image */
+}
+
+.subtitle {
+  font-size: 4rem;
+  color: white;
+  z-index: 5; /* Ensure subtitle text is above the image */
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  animation: marquee 20s linear infinite;
+}
+
+
+
+/* CDN link for Oswald font:
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+*/
+
+.profile-image {
+  width: auto;
+  height: 120vh;
+  margin-bottom: 0px;
+  z-index: 2;
+}
+
+@keyframes hover {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Move to the end of the first subtitle */
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 20rem;
+  }
+
+  .profile-image {
+    height: 100vh;
+  }
+
+  .subtitle {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 6rem;
+  }
+
+  .profile-image {
+    height: 80vh;
+  }
+
+  .subtitle {
+    font-size: 2rem;
+  }
+}
