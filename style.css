@@ -273,7 +273,7 @@ body, html {
 
   .profile-image {
     height: 90vh;
-    margin-right: 10px;
+    margin-right: 0px;
   }
 
   .subtitle {
