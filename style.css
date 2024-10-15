@@ -95,7 +95,18 @@ body, html {
 
 @media screen and (max-width: 480px) {
   .title {
-    font-size: 6rem;
+    font-size: 20rem;
+  }
+
+  .subtitle-wrapper {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden; /* Hide overflow for a clean look */
+    z-index: 4; /* Ensure subtitle is above the image */
   }
 
   .profile-image {
