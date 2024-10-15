@@ -99,14 +99,17 @@ body, html {
   }
 
   .subtitle-wrapper {
-    position: absolute;
     bottom: 2%;
-    left: 50%;
-    transform: translateX(-50%);
+  }
+
+  .container {
     display: flex;
-    white-space: nowrap;
-    overflow: hidden; /* Hide overflow for a clean look */
-    z-index: 4; /* Ensure subtitle is above the image */
+    justify-content: center;
+    align-items: flex-end;
+    height: 90vh;
+    position: relative;
+    background: linear-gradient(to right, #414141, #2a2a2a);
+    overflow: hidden;
   }
 
   .profile-image {
