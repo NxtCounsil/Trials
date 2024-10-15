@@ -1,4 +1,4 @@
-const words = ['Developement', 'Entrepreneurship', 'Technology', 'Innovation'];
+const words = ['Developement', 'Startups', 'Technology', 'Innovation'];
 let currentIndex = 0;
 const changingText = document.getElementById('changingText');
 
@@ -27,7 +27,6 @@ function animateLetter(element, targetLetter, index) {
 function changeText() {
   const targetWord = words[currentIndex];
   
-  // Fade out
   changingText.style.opacity = '0';
   
   setTimeout(() => {
@@ -36,11 +35,10 @@ function changeText() {
     for (let i = 0; i < targetWord.length; i++) {
       const span = document.createElement('span');
       span.textContent = randomChar();
-      span.style.marginRight = '0.1em'; // Add this line
+      span.style.marginRight = '0.1em';
       changingText.appendChild(span);
     }
 
-    // Fade in
     changingText.style.opacity = '1';
 
     for (let i = 0; i < targetWord.length; i++) {
@@ -50,7 +48,7 @@ function changeText() {
     }
 
     currentIndex = (currentIndex + 1) % words.length;
-  }, 500); // Wait for fade out
+  }, 500);
 }
 
 function setupSubtitleAnimation() {
@@ -58,17 +56,13 @@ function setupSubtitleAnimation() {
   const content = document.querySelector('.subtitle-content');
   const subtitle = content.querySelector('.subtitle');
 
-  // Calculate the animation duration based on content width
   const contentWidth = content.offsetWidth;
-  const animationDuration = contentWidth / 50; // Adjust 50 to change speed
+  const animationDuration = contentWidth / 50;
 
-  // Set the animation
   wrapper.style.setProperty('--animation-duration', `${animationDuration}s`);
 
-  // Clone the subtitle text and append it to the existing subtitle
   subtitle.innerHTML += ' ' + subtitle.innerHTML;
 
-  // Start the animation
   wrapper.classList.add('animate');
 }
 
@@ -77,7 +71,7 @@ function animateInitialWord(word) {
   for (let i = 0; i < word.length; i++) {
     const span = document.createElement('span');
     span.textContent = randomChar();
-    span.style.marginRight = '0.1em'; // Add this line
+    span.style.marginRight = '0.1em';
     changingText.appendChild(span);
   }
 
@@ -91,18 +85,56 @@ function animateInitialWord(word) {
 }
 
 function startAnimation() {
-  // Animate the first word
   const firstWord = words[0];
   animateInitialWord(firstWord);
 
-  // Start the animation cycle with the second word
   setTimeout(() => {
-    currentIndex = 1; // Start with the second word
+    currentIndex = 1;
     changeText();
     setInterval(changeText, 5000);
-  }, 5000); // Wait 5 seconds before starting the cycle
+  }, 5000);
 
   setupSubtitleAnimation();
 }
 
-startAnimation();
+document.addEventListener('DOMContentLoaded', function() {
+  var animation = lottie.loadAnimation({
+    container: document.getElementById('lottie-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'animation.json'
+  });
+
+  startAnimation();
+
+  // Add scroll event listener
+  const container = document.querySelector('.container'); // Adjust selector if needed
+  const contentSection = document.querySelector('.content-section'); // Adjust selector if needed
+  
+  if (container && contentSection) {
+    let isScrolling = false;
+    let lastScrollTop = 0;
+    
+    function smoothScroll() {
+      const contentSectionTop = contentSection.getBoundingClientRect().top + window.pageYOffset;
+      const currentPosition = window.pageYOffset;
+      
+      if (currentPosition < contentSectionTop) {
+        window.scrollTo(0, currentPosition + Math.ceil((contentSectionTop - currentPosition) * 0.1));
+        requestAnimationFrame(smoothScroll);
+      } else {
+        isScrolling = false;
+      }
+    }
+
+    window.addEventListener('scroll', function() {
+      const st = window.pageYOffset || document.documentElement.scrollTop;
+      if (!isScrolling && st > lastScrollTop && st < container.offsetHeight) {
+        isScrolling = true;
+        requestAnimationFrame(smoothScroll);
+      }
+      lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+    });
+  }
+});

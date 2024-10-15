@@ -116,8 +116,132 @@ body, html {
   }
 }
 
-.container2 {
+.content-section {
   height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/background.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.content-section__wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 2rem;
+}
+
+.content-section__text {
+  flex: 1;
+}
+
+.content-section__image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-section__heading {
+  font-family: 'Poppins', sans-serif;
+  color: #2a2a2a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content-section__heading:first-child {
+  margin-top: 0;
+}
+
+.content-section__paragraph {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+.content-section__skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+}
+
+.content-section__skill-item {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
+  border-radius: 10px;
+}
+
+.content-section__skill-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  object-fit: contain;
+}
+
+.content-section__skill-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.9rem;
+}
+
+.content-section__social {
+  display: flex;
+  gap: 1rem;
+}
+
+.content-section__social-link {
+  color: #2a2a2a;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+}
+
+.content-section__profile-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section__animation {
+  width: 100%;
+  height: 100%;
+  max-width: 500px; /* Adjust as needed */
+  max-height: 500px; /* Adjust as needed */
+}
+
+@media screen and (max-width: 768px) {
+  .content-section__wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .content-section__image {
+    margin-bottom: 2rem;
+  }
+
+  .content-section__image {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -168,4 +292,10 @@ body, html {
     font-size: 0.6rem;
   }
   
+}
+
+/* Custom Scrollbar Styles */
+/* For webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 0px;
 }
