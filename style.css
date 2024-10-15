@@ -114,6 +114,7 @@ body, html {
 
   .profile-image {
     height: 80vh;
+    margin-right: 10px;
   }
 
   .subtitle {
