@@ -2,6 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 200vh;
+  overflow: hidden;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -33,31 +34,48 @@ body, html {
   transform: translateX(-50%);
   display: flex;
   white-space: nowrap;
-  overflow: hidden; /* Hide overflow for a clean look */
-  z-index: 4; /* Ensure subtitle is above the image */
+  overflow: hidden;
+  z-index: 4;
 }
 
 .subtitle {
   font-size: 4rem;
   color: white;
-  z-index: 5; /* Ensure subtitle text is above the image */
+  z-index: 5;
   text-align: center;
   font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
   animation: marquee 20s linear infinite;
 }
 
-
-
-/* CDN link for Oswald font:
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
-*/
-
 .profile-image {
   width: auto;
   height: 120vh;
   margin-bottom: 0px;
   z-index: 2;
+}
+
+.changing-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  color: white;
+  z-index: 5;
+  font-family: 'Oswald', sans-serif;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
+}
+
+.changing-text span {
+  display: inline-block;
+  width: 1ch;
+  text-align: center;
+}
+
+.changing-text span:hover {
+  color: #ff00ff;
 }
 
 @keyframes hover {
@@ -74,10 +92,9 @@ body, html {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%); /* Move to the end of the first subtitle */
+    transform: translateX(-50%);
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .title {
@@ -103,13 +120,7 @@ body, html {
   }
 
   .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
     height: 90vh;
-    position: relative;
-    background: linear-gradient(to right, #414141, #2a2a2a);
-    overflow: hidden;
   }
 
   .profile-image {
