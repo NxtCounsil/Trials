@@ -57,7 +57,7 @@ function setupSubtitleAnimation() {
   const subtitle = content.querySelector('.subtitle');
 
   const contentWidth = content.offsetWidth;
-  const animationDuration = contentWidth / 50;
+  const animationDuration = contentWidth / 100;
 
   wrapper.style.setProperty('--animation-duration', `${animationDuration}s`);
 

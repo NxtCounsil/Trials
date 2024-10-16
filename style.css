@@ -186,11 +186,48 @@ body, html {
 }
 
 .content-section__skill-item {
+  position: relative;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  background-color: #f0f0f0;
-  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
-  border-radius: 10px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  overflow: visible;
+  z-index: 1;
+}
+
+.content-section__skill-item:hover {
+  transform: translateY(-3px);
+}
+
+.content-section__skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border-radius: 8px;
+  z-index: -1;
+  border: 2px solid #B0C4DE;
+}
+
+.content-section__skill-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.content-section__skill-item:hover::after {
+  opacity: 1;
 }
 
 .content-section__skill-icon {
@@ -198,11 +235,81 @@ body, html {
   height: 20px;
   margin-right: 0.5rem;
   object-fit: contain;
+  z-index: 2;
 }
 
 .content-section__skill-name {
   font-family: 'Oswald', sans-serif;
   font-size: 0.9rem;
+  z-index: 2;
+}
+
+.content-section__skill-item:hover .content-section__skill-name {
+  color: white;
+}
+
+.content-section__skill-item:hover .content-section__skill-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* HTML */
+.content-section__skill-item:has(img[alt="HTML"]):hover::after {
+  background-color: #E34F26;
+  box-shadow: 0 4px 8px rgba(227, 79, 38, 0.5);
+}
+
+/* CSS */
+.content-section__skill-item:has(img[alt="CSS"]):hover::after {
+  background-color: #1572B6;
+  box-shadow: 0 4px 8px rgba(21, 114, 182, 0.5);
+}
+
+/* JavaScript */
+.content-section__skill-item:has(img[alt="JavaScript"]):hover::after {
+  background-color: #F7DF1E;
+  box-shadow: 0 4px 8px rgba(247, 223, 30, 0.5);
+}
+
+/* TypeScript */
+.content-section__skill-item:has(img[alt="TypeScript"]):hover::after {
+  background-color: #3178C6;
+  box-shadow: 0 4px 8px rgba(49, 120, 198, 0.5);
+}
+
+/* Python */
+.content-section__skill-item:has(img[alt="Python"]):hover::after {
+  background-color: #FFD43B;
+  box-shadow: 0 4px 8px rgba(255, 212, 59, 0.5);
+}
+
+/* React */
+.content-section__skill-item:has(img[alt="React"]):hover::after {
+  background-color: #61DAFB;
+  box-shadow: 0 4px 8px rgba(97, 218, 251, 0.5);
+}
+
+/* Django */
+.content-section__skill-item:has(img[alt="Django"]):hover::after {
+  background-color: #092E20;
+  box-shadow: 0 4px 8px rgba(9, 46, 32, 0.5);
+}
+
+/* Tailwind */
+.content-section__skill-item:has(img[alt="Tailwind"]):hover::after {
+  background-color: #38B2AC;
+  box-shadow: 0 4px 8px rgba(56, 178, 172, 0.5);
+}
+
+/* Bootstrap */
+.content-section__skill-item:has(img[alt="Bootstrap"]):hover::after {
+  background-color: #7952B3;
+  box-shadow: 0 4px 8px rgba(121, 82, 179, 0.5);
+}
+
+/* Firebase */
+.content-section__skill-item:has(img[alt="Firebase"]):hover::after {
+  background-color: #FFCA28;
+  box-shadow: 0 4px 8px rgba(255, 202, 40, 0.5);
 }
 
 .content-section__social {
@@ -254,7 +361,7 @@ body, html {
   }
 
   .subtitle {
-    font-size: 3.5rem;
+    font-size: 6rem;
   }
 }
 
@@ -264,7 +371,7 @@ body, html {
   }
 
   .subtitle-wrapper {
-    bottom: 2%;
+    bottom: -10%;
   }
 
   .container {
@@ -273,11 +380,11 @@ body, html {
 
   .profile-image {
     height: 90vh;
-    margin-right: 12px;
+    margin-right: 10px;
   }
 
   .subtitle {
-    font-size: 2rem;
+    font-size: 6rem;
   }
 
   .changing-text {
