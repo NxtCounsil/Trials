@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#001529">
+    <title>webale</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 200vh;
+        }
+        .hero {
+            min-height: 100vh;
+            background-color: #001529;
+            background-image: 
+                linear-gradient(rgba(0, 21, 41, 1),rgba(0, 21, 41, 0.5), rgba(0, 21, 41, 1)),
+                linear-gradient(to right, #0050b3 1px, transparent 1px),
+                linear-gradient(to bottom, #0050b3 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            padding: 0.5rem 1.5rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            max-height: 40px; /* Adjust the height of the SVG */
+            width: auto;
+        }
+        .nav-links {
+            position: relative; /* Required for absolute positioning of hover area */
+
+        }
+        .hover-area {
+            display: flex;
+            padding: 1rem; /* Increase padding around links */
+        }
+        .hover-area a {
+            color: #a0aec0;
+            text-decoration: none;
+            padding: 0.6rem 1rem; /* Keep link padding for click area */
+            transition: color 0.2s ease; /* Transition for link color */
+            display: none;
+        }
+        .hover-area a:hover {
+            color: white; /* Change color of the specific link on hover */
+            background-color: rgba(255, 255, 255, 0.05); /* Subtle background on hover */
+            border-radius: 999px; /* Rounded corners for effect */
+        }
+        /* Styling the Login button */
+        .login-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #a0aec0;
+            color: #a0aec0;
+            border-radius: 9999px;
+            background-color: transparent;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-left: 15px;
+        }
+        .login-btn:hover {
+            background-color: #0050b3;
+            color: white;
+            border: 2px solid #0050b3;
+            box-shadow: 0 5px 15px rgba(0, 80, 179, .4);
+        }
+
+        .hero-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+            margin-top: -60px;
+        }
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0px;
+            max-width: 600px;
+        }
+        p {
+            color: #a0aec0;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 400px;
+            margin-top: 5px;
+        }
+        .spreadsheet {
+            height: 40px;
+            color: white;
+            margin-bottom: -5px;
+            filter: brightness(0) invert(1);
+        }
+        .cta-button {
+            background-color: #0050b3;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #0050b3;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 80, 179, .4);
+        }
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            p {
+                font-size: 1.2rem;
+                max-width: 600px;
+            }
+            .spreadsheet {
+                height: 50px;
+            }
+            .hover-area {
+                display: flex;
+                padding: 1rem; /* Increase padding around links */
+            }
+            .hover-area a {
+                color: #a0aec0;
+                text-decoration: none;
+                padding: 0.6rem 1rem; /* Keep link padding for click area */
+                transition: color 0.2s ease; /* Transition for link color */
+                display: flex;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <header>
+            <nav>
+                <a href="/" class="logo">
+                    <img src="webale.svg" alt="Webale Logo">
+                </a>
+                <div class="nav-links">
+                    <div class="hover-area">
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <a href="#">Contact</a>
+                        <button class="login-btn">Login</button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="hero-content">
+            <h1>Spreadsheet <img src="spreadsheet.svg" class="spreadsheet"> to Website in minutes</h1>
+            <p>
+              Webale is a user-friendly platform that lets you create websites without coding. Just use a spreadsheet-like interface to manage your content!</p>
+            <a href="#" class="cta-button">Create Website</a>
+        </main>
+    </div>
+</body>
+</html>
